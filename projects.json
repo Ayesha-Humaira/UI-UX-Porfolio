@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Nike Air Max 90 UI",
+    "images": [
+      "images/project1.png"
+    ],
+    "desc": "A minimal Nike Air Max 90 UI with bold visuals and a premium look."
+  },
+  {
+    "title": "Foodbar",
+    "images": [
+      "images/project2.png"
+    ],
+    "desc": "A clean, minimal UI for a fresh salad bar experience."
+  },
+  {
+    "title": "3D Design",
+    "images": [
+      "images/3D.png"
+    ],
+    "desc": "A modern 3D artwork focused on depth, lighting, and visual appeal."
+  },
+  {
+    "title": "WeatherScope",
+    "images": [
+      "images/Weather.png"
+    ],
+    "desc": "A clean and modern weather UI showing real-time updates."
+  },
+  {
+    "title": "ColorFlow UI",
+    "images": [
+      "images/Mobile.png"
+    ],
+    "desc": "A simple and colorful interface design focused on clean layout and smooth visual balance."
+  },
+  {
+    "title": "Logitech MX Master 3S UI",
+    "images": [
+      "images/Logitech.png"
+    ],
+    "desc": "A premium UI design showcasing the Logitech MX Master 3S with a clean, modern, and product-focused layout."
+  },
+  {
+    "title": "DualSense Wireless Controller UI",
+    "images": [
+      "images/Console.png"
+    ],
+    "desc": "A sleek, modern UI design showcasing the DualSense Wireless Controller with a clean and immersive product-focused layout."
+  },
+  {
+    "title": "EduClass UI",
+    "images": [
+      "images/Education.png"
+    ],
+    "desc": "A clean education UI design featuring a demo class button with a simple, modern, and user-friendly learning interface."
+  },
+  {
+    "title": "Nike Air Max Pre-Day Store UI",
+    "images": [
+      "images/Shoe 2.png"
+    ],
+    "desc": "A modern Nike shopping UI focused on Air Max Pre-Day, with additional shoe options for a smooth and interactive buying experience."
+  },
+   {
+    "title": "E-Bike Explorer UI",
+    "images": [
+      "images/E-Bike.png"
+    ],
+    "desc": "A modern e-bike UI design with a clean layout and smooth product browsing experience."
+  }
+]

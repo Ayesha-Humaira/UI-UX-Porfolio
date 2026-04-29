@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bibi Ayesha Khatun Humaira Portfolio</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="logo">Bibi Ayesha Khatun Humaira</div>
+   <div class="menu-toggle" onclick="toggleMenu()">
+  ☰
+</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#work">My Designs</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <img src="images/profile.jpeg" class="avatar" />
+
+  <h1 class="name">Hi, I'm Humaira!</h1>
+
+  <h2 class="typing">
+    I am a <span id="changing-text"></span>
+  </h2>
+</section>
+
+<section class="work reveal" id="work">
+  <h2>My Designs</h2>
+  <div id="project-container"></div>
+</section>
+
+<section class="about reveal" id="about">
+  <h2>About Me</h2>
+  <p>
+    I am a UI/UX designer who loves creating clean and user-friendly digital experiences.
+  </p>
+</section>
+
+<section class="contact reveal" id="contact">
+  <h2>Contact</h2>
+
+  <div class="icons">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=bibiayesha4461@gmail.com" target="_blank">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+
+    <a href="https://linkedin.com" target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+
+    <a href="https://behance.net" target="_blank">
+      <i class="fa-brands fa-behance"></i>
+    </a>
+
+    <a href="https://github.com/Ayesha-Humaira" target="_blank">
+      <i class="fa-brands fa-github"></i>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2026 Bibi Ayesha Khatun Humaira. All rights reserved.
+</footer>
+
+<div class="modal">
+  <span class="close">&times;</span>
+  <button class="prev" onclick="prevImg()">❮</button>
+  <img class="modal-img" />
+  <button class="next" onclick="nextImg()">❯</button>
+</div>
+
+<script src="script.js"></script>
+
+
+</body>
+</html>
