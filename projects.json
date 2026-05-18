@@ -68,5 +68,18 @@
       "images/E-Bike.png"
     ],
     "desc": "A modern e-bike UI design with a clean layout and smooth product browsing experience."
+  },
+
+  {
+    "title": "Modern Pizza Landing Page",
+    "images": [
+      "images/pizza 1.png",
+      "images/pizza 2.png",
+      "images/pizza 3.png",
+      "images/pizza 4.png",
+      "images/Pizza.mp4"
+    ],
+    "desc": "A clean and interactive UI/UX landing page design focused on smooth user experience, engaging visuals, and modern food app aesthetics.."
   }
+
 ]
