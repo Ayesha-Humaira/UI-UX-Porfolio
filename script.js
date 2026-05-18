@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ✅ WORD TYPING (same)
   const words = [
     "UI/UX Designer",
     "CSE Graduate",
@@ -37,13 +36,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   typeEffect();
 
-  // ✅ PROJECT
-  let currentImages = [];
+  // =========================
+  // PROJECT + GALLERY FIX
+  // =========================
+
+  let currentMedia = [];
   let currentIndex = 0;
 
   const container = document.getElementById("project-container");
   const modal = document.querySelector(".modal");
   const modalImg = document.querySelector(".modal-img");
+
+  // create video element for modal (NEW)
+  let modalVideo = document.createElement("video");
+  modalVideo.className = "modal-img";
+  modalVideo.controls = true;
+  modalVideo.style.display = "none";
+  modal.appendChild(modalVideo);
+
+  function isVideo(file) {
+    return file && file.toLowerCase().endsWith(".mp4");
+  }
 
   fetch("projects.json")
     .then(res => res.json())
@@ -51,38 +64,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
       window.projectsData = data;
 
-      container.innerHTML = data.map((p, index) => `
-        <div class="card">
-          <img src="${p.images[0]}" />
-          <div class="card-content">
-            <h3>${p.title}</h3>
-            <p>${p.desc}</p>
-            <button class="view-btn" onclick="openGallery(${index})">Preview</button>
+      container.innerHTML = data.map((p, index) => {
+
+        const first = p.images[0];
+        const mediaTag = isVideo(first)
+          ? `<video src="${first}" class="project-media" muted></video>`
+          : `<img src="${first}" />`;
+
+        return `
+          <div class="card">
+            ${mediaTag}
+            <div class="card-content">
+              <h3>${p.title}</h3>
+              <p>${p.desc}</p>
+              <button class="view-btn" onclick="openGallery(${index})">Preview</button>
+            </div>
           </div>
-        </div>
-      `).join("");
+        `;
+      }).join("");
     });
 
   window.openGallery = (i) => {
-    currentImages = window.projectsData[i].images;
+    currentMedia = window.projectsData[i].images;
     currentIndex = 0;
     modal.style.display = "flex";
-    modalImg.src = currentImages[0];
+
+    showMedia(currentMedia[0]);
   };
 
+  function showMedia(src) {
+    if (isVideo(src)) {
+      modalImg.style.display = "none";
+      modalVideo.style.display = "block";
+      modalVideo.src = src;
+      modalVideo.play();
+    } else {
+      modalVideo.pause();
+      modalVideo.style.display = "none";
+      modalImg.style.display = "block";
+      modalImg.src = src;
+    }
+  }
+
   window.nextImg = () => {
-    currentIndex = (currentIndex + 1) % currentImages.length;
-    modalImg.src = currentImages[currentIndex];
+    currentIndex = (currentIndex + 1) % currentMedia.length;
+    showMedia(currentMedia[currentIndex]);
   };
 
   window.prevImg = () => {
-    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-    modalImg.src = currentImages[currentIndex];
+    currentIndex = (currentIndex - 1 + currentMedia.length) % currentMedia.length;
+    showMedia(currentMedia[currentIndex]);
   };
 
-  document.querySelector(".close").onclick = () => modal.style.display = "none";
+  document.querySelector(".close").onclick = () => {
+    modal.style.display = "none";
+    modalVideo.pause();
+  };
 
-  // ✅ FIXED SCROLL ANIMATION (🔥 repeat every time)
+  // SCROLL ANIMATION
   const reveals = document.querySelectorAll(".reveal");
 
   function revealOnScroll() {
@@ -92,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (top < window.innerHeight - 80) {
         el.classList.add("active");
       } else {
-        el.classList.remove("active"); // 🔥 THIS LINE FIXES REPEAT ANIMATION
+        el.classList.remove("active");
       }
     });
   }
